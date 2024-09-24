@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->unsignedBigInteger('centro_id')->nullable();
             $table->foreign('centro_id')->references('id')->on('centros');
+            $table->timestamps();
         });
     }
 

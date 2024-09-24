@@ -7,6 +7,7 @@
             <th>Nombre</th>
             <th>Cantidad</th>
             <th>Acciones</th>
+            <th>Agregar centro</th>
         </thead>
         <tbody>
             @foreach ($regionales as $regional)
@@ -30,6 +31,7 @@
                             </button>
                         {{ html()->closeModelForm() }}
                     </td>
+                    <td><a href=" {{route('centros.index', $regional->id)}} ">Agregar centro</a></td>
                 </tr>
                 
             @endforeach

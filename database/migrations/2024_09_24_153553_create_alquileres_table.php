@@ -17,6 +17,7 @@ return new class extends Migration
             $table->time('hora_fin');
             $table->unsignedBigInteger('bicicleta_id')->nullable();
             $table->foreign('bicicleta_id')->references('id')->on('bicicletas');
+            $table->timestamps();
         });
     }
 

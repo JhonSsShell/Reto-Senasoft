@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('precio');
             $table->unsignedBigInteger('centro_id')->nullable();
             $table->foreign('centro_id')->references('id')->on('centros');
+            $table->timestamps();
         });
     }
 

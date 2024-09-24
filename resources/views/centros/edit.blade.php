@@ -1,3 +1,7 @@
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-</div>
+{{ html()->modelForm($centro, 'PUT')->route('centros.update', $centro->id)->open() }}
+
+    @include('centros.partials.form')
+
+    <button>Actualizar</button>
+    
+{{ html()->closeModelForm() }}

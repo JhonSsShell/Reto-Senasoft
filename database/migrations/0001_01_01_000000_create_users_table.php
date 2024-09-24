@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telefono', length:10)->nullable();
             $table->unsignedBigInteger('estrato_id')->nullable();
-            $table->foreign('estrato_id')->references('id')->on('estratos')->nullOnDelete();
+            $table->foreign('estrato_id')->references('id')->on('estratos');
             $table->unsignedBigInteger('centro_id')->nullable();
             $table->foreign('centro_id')->references('id')->on('centros');
             $table->timestamp('email_verified_at')->nullable();

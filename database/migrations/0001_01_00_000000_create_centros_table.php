@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono_centro', length:10);
-            $table->unsignedBigInteger('regional_id')->nullable();
-            $table->foreign('regional_id')->references('id')->on('regionales')->nullOnDelete();
+            $table->unsignedBigInteger('regional_id');
+            $table->foreign('regional_id')->references('id')->on('regionales');
+            $table->timestamps();
         });
     }
 

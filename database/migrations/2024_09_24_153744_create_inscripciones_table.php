@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('documento');
             $table->unsignedBigInteger('evento_id')->nullable();
             $table->foreign('evento_id')->references('id')->on('eventos');
+            $table->timestamps();
         });
     }
 

@@ -64,9 +64,9 @@ class RegionalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Regionale $regional)
+    public function destroy(Regionale $regionale)
     {
-        $regional->delete();
+        $regionale->delete();
         return redirect()->route('regionales.index');
     }
 }
