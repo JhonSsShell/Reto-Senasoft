@@ -10,6 +10,7 @@
             <th>regional</th>
             <th>Acciones</th>
             <th>Agregar centro</th>
+            <th>Ver bicicletas</th>
         </thead>
         <tbody>
             @foreach ($centros as $centro)
@@ -39,6 +40,7 @@
                             </button>
                         {{ html()->closeModelForm() }}
                     </td>
+                    <td> <a href=" {{ route('bicicletas.index', $centro->id) }} "> ver bicicleteas</a></td>
                 </tr>
                 
             @endforeach

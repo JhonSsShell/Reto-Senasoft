@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('users', UserController::class)->except(['show'])->names('users');
 Route::resource('alquileres', AlquilerController::class)->except(['show'])->names('alquileres');
-Route::resource('bicicletas', BicicletaController::class)->except(['show'])->names('bicicletas');
+Route::resource('bicicletas', BicicletaController::class)->except(['show', 'create'])->names('bicicletas');
 Route::resource('centros', CentroController::class)->except(['show','index'])->names('centros');
 Route::resource('estratos', EstratoController::class)->except(['show'])->names('estratos');
 Route::resource('eventos', EventoController::class)->except(['show'])->names('eventos');
@@ -36,6 +36,10 @@ Route::resource('regionales', RegionalController::class)->except(['show'])->name
 Route::prefix('centros')->group(function () {
     Route::get('/index/{regional}', [CentroController::class, "index"])->name("centros.index");
     Route::get('/create/{regional}', [CentroController::class, "create"])->name("centros.create");
+});
+Route::prefix('bicicletas')->group(function () {
+    Route::get('/index/{centro}', [BicicletaController::class, "index"])->name("bicicletas.index");
+    Route::get('/create/{centro}', [BicicletaController::class, "create"])->name("bicicletas.create");
 });
 
 require __DIR__.'/auth.php';

@@ -1,3 +1,7 @@
-<div>
-    <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-</div>
+{{ html()->modelForm($bicicleta, 'PUT')->route('bicicletas.update', $bicicleta->id)->open() }}
+
+    @include('bicicletas.partials.form')
+
+    <button>Actualizar</button>
+    
+{{ html()->closeModelForm() }}
