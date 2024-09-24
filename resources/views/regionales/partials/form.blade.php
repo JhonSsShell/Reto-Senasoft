@@ -1,3 +1,4 @@
-<div>
-    <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
-</div>
+
+{{ html()->text('nombre_regional') }}
+{{ html()->number('cantidad_bicicletas') }}
+

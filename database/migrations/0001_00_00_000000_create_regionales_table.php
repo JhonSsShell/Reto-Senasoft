@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('regionales', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_regional');
-            $table->integer('cantidad_bicicletas');
+            $table->integer('cantidad_bicicletas')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('regionales');
+        Schema::dropIfExists('regionals');
     }
 };

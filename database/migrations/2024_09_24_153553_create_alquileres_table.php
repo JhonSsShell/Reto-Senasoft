@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alquileres', function (Blueprint $table) {
+        Schema::create('alquilers', function (Blueprint $table) {
             $table->id();
             $table->time("hora_inicio");
             $table->time('hora_fin');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegionalRequest;
 use App\Models\Regional;
+use App\Models\Regionale;
 use Illuminate\Http\Request;
 
 class RegionalController extends Controller
@@ -13,7 +14,7 @@ class RegionalController extends Controller
      */
     public function index()
     {
-        $regionales = Regional::all();
+        $regionales = Regionale::all();
         return view('regionales.index', compact('regionales'));
     }
 
@@ -30,8 +31,8 @@ class RegionalController extends Controller
      */
     public function store(RegionalRequest $request)
     {
-        Regional::create($request->all());
-        return redirect()->route('regionales.edit');
+        Regionale::create($request->all());
+        return redirect()->route('regionales.index');
     }
 
     /**
@@ -45,24 +46,25 @@ class RegionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Regional $regional)
+    public function edit(Regionale $regionale)
     {
-        return view('regionales.edit',compact('regional'));
+        // dd($request->id);
+        return view('regionales.edit',compact('regionale'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(RegionalRequest $request, Regional $regional)
+    public function update(RegionalRequest $request, Regionale $regionale)
     {
-        $regional->update($request->all());
+        $regionale->update($request->all());
         return redirect()->route('regionales.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Regional $regional)
+    public function destroy(Regionale $regional)
     {
         $regional->delete();
         return redirect()->route('regionales.index');

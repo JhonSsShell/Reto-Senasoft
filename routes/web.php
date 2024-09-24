@@ -8,6 +8,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionalController;
 use App\Http\Controllers\UserController;
+use App\Models\Regional;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

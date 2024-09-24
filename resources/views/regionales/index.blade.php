@@ -1,3 +1,38 @@
 <div>
-    <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
+    <a href=" {{route('regionales.create')}} ">Agregar regional</a>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            @foreach ($regionales as $regional)
+                <tr>
+                    <td>
+                        {{$regional->id}}
+                    </td>
+                    <td>
+                        {{$regional->nombre_regional}}
+                    </td>
+                    <td>
+                        {{$regional->cantidad_bicicletas}}
+                    </td>
+                    <td>
+                        <a href=" {{ route('regionales.edit', $regional->id) }} ">Modificar</a>
+                    </td>
+                    <td>
+                        {{ html()->modelForm($regional, 'DELETE')->route('regionales.destroy', $regional->id)->open() }}
+                            <button>
+                                Eliminar
+                            </button>
+                        {{ html()->closeModelForm() }}
+                    </td>
+                </tr>
+                
+            @endforeach
+        </tbody>
+    </table>
 </div>
