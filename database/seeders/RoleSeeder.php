@@ -14,10 +14,5 @@ class RoleSeeder extends Seeder
         $superAdmin = Role::create(['name' => "superadministrador"]);
         $administrador = Role::create(['name' => "administrador"]);
         $cliente = Role::create(['name' => 'cliente']);
-
-        Permission::create([
-            'name' => 'centros.index',
-            'description' => 'Listar los centros'
-        ])->syncRoles([$administrador]);
     }
 }

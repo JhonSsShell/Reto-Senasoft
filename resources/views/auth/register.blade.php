@@ -4,7 +4,7 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Nombre de usuario')" />
+            <x-input-label for="name" :value="__('Nombre completo')" />
             <x-text-input id="name" class="input input-bordered input-sm mt-1 w-full" type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Ingrese su nombre" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -52,17 +52,6 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-        
-        <div class="mt-4">
-            <x-input-label for="estratos" :value="__('Estrato social')" />
-            <select name="estratos" id="estratos" class="select mt-1 select-bordered select-sm w-full text-gray-400">
-                @foreach ($estratos as $estrato)
-                    <option value="">
-                        {{ $estrato->tipo_estrato }}
-                    </option>
-                    @endforeach
-            </select>
-        </div>
 
         <div class="mt-4">
             <x-input-label for="centros" :value="__('Centro de formacion')" />
@@ -77,9 +66,6 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('¿Ya te encuentras registrado?') }}
-            </a>
 
             <x-primary-button class="ms-4">
                 {{ __('Registro') }}
