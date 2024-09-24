@@ -8,11 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->integer('documento', false)->primary(true);
-            $table->string('nombre');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->integer('documento')->unique()->nullable();
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('telefono', length:10);
+            $table->string('telefono', length:10)->nullable();
             $table->unsignedBigInteger('estrato_id')->nullable();
             $table->foreign('estrato_id')->references('id')->on('estratos')->nullOnDelete();
             $table->unsignedBigInteger('centro_id')->nullable();
