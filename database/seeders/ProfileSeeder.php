@@ -19,5 +19,17 @@ class ProfileSeeder extends Seeder
             'telefono' => '3186040819',
             'user_id' => 1
         ]);
+        DB::table('profiles')->insert([
+            'name' => 'Jhon fredy',
+            'documento' => '1099737502',
+            'telefono' => '3186040819',
+            'user_id' => 3
+        ]);
+        DB::table('profiles')->insert([
+            'name' => 'Jose Julian',
+            'documento' => '1099737503',
+            'telefono' => '3186040819',
+            'user_id' => 2
+        ]);
     }
 }

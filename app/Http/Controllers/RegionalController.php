@@ -5,10 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegionalRequest;
 use App\Models\Regional;
 use App\Models\Regionale;
+use Illuminate\Container\Attributes\Log;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RegionalController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('can:roles.index')->only('index');
+        $this->middleware('can:roles.create')->only('create', 'store');
+        $this->middleware('can:roles.edit')->only('edit', 'update');
+        $this->middleware('can:roles.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */

@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Profile Information') }}
+            {{ __('Informacion del perfil') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Actualiza la informacion de tu perfil en tiempo real") }}
         </p>
     </header>
 
@@ -13,42 +13,49 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+
+    <form method="post" action="{{ route('users.updateProfile', $perfil) }}" class="mt-6 space-y-6">
         @csrf
-        @method('patch')
+        {{-- @method('patch') --}}
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-input-label for="name" :value="__('Nombre real')" class="font-bold text-black"/>
+            <x-text-input id="name" name="name" type="text" class="input input-bordered input-sm mt-1 block w-full" :value="old('name', $perfil->name)" placeholder="Ingrese su nombre completo" autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                        {{ __('Your email address is unverified.') }}
-
-                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
-            @endif
+            <x-input-label for="documento" :value="__('Numero de documento')" class="font-bold text-black" />
+            <x-text-input id="documento" name="documento" type="text" class="input input-bordered input-sm mt-1 block w-full" :value="old('documento', $perfil->documento)" placehloder="Ingrese su numero de documento" autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('documento')" />
+        </div>
+        
+        <div>
+            <x-input-label for="telefono" :value="__('Numero de telefono')" class="font-bold text-black" />
+            <x-text-input id="telefono" name="telefono" type="text" class="input input-bordered input-sm mt-1 block w-full" :value="old('telefono', $perfil->telefono)" placeholder="Ingrese el numero de telefono" autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('telefono')" />
         </div>
 
+        <div>
+            <div>
+                <label for="estrato" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Ingrese su estrato social</label>
+            </div>
+            <select name="estratos" id="estratos" class="mt-1 select select-bordered select-sm w-full">
+                @foreach ($estratos as $estrato)
+                    <option value="">{{ $estrato->tipo_estrato }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <input type="hidden" name="user_id" value="{{ $perfil->user_id }}">
+
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <div>
+
+                <button type="submit" class="btn btn-outline btn-sm border-none">Actualizar datos</button>
+
+            </div>
+            {{-- <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -58,7 +65,7 @@
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >{{ __('Saved.') }}</p>
-            @endif
+            @endif --}}
         </div>
     </form>
 </section>

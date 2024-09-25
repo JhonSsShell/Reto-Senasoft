@@ -28,8 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::group(['middleware' => ['auth', 'permissions:roles.index']], function () {
+    Route::get('/roles', [RoleController::class, 'index']);
+    Route::get('/roles/create', [RoleController::class, 'create']);
+});
+
 Route::resource('users', UserController::class)->except(['show'])->names('users');
-Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
+// Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
 Route::resource('permisos', PermissionsController::class)->except(['show'])->names('permisos');
 Route::resource('alquileres', AlquilerController::class)->except(['show'])->names('alquileres');
 Route::resource('bicicletas', BicicletaController::class)->except(['show', 'create'])->names('bicicletas');
@@ -37,6 +42,10 @@ Route::resource('centros', CentroController::class)->except(['show','index'])->n
 Route::resource('estratos', EstratoController::class)->except(['show'])->names('estratos');
 Route::resource('eventos', EventoController::class)->except(['show'])->names('eventos');
 Route::resource('regionales', RegionalController::class)->except(['show'])->names('regionales');
+
+Route::prefix('users')->group(function() {
+    Route::post('/updateProfile/{profile}', [UserController::class, 'updateProfile'])->name('users.updateProfile');
+});
 
 Route::prefix('centros')->group(function () {
     Route::get('/index/{regional}', [CentroController::class, "index"])->name("centros.index");

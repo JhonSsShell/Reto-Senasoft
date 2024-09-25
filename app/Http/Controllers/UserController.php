@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -18,6 +19,7 @@ class UserController extends Controller
     {
         
         $users = User::all();
+        // $roles_user = $user->getRoleNames();
         return view('users.index', compact('users'));
     }
 
@@ -74,5 +76,11 @@ class UserController extends Controller
     {
         //
     }
-    
+
+    public function updateProfile(Request $request){
+
+        $perfil = Profile::where('id', $request->user_id)->first();
+        $perfil->update($request->all());
+        return redirect()->route('profile.edit');
+    }
 }
