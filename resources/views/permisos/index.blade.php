@@ -11,6 +11,11 @@
             </h2>
         </div>
     </x-slot>
+    <div class="max-w-5xl mt-5 my-0 mx-auto">
+        <div>
+            <a href="{{ route('permisos.create') }}" class="btn btn-sm btn-outline border-none">Crea permiso</a>
+        </div>
+    </div>
     <div class="max-w-5xl flex flex-wrap gap-4 justify-around my-0 mx-auto min-h-8 mt-4">
         @foreach ($permisos as $permiso)
             <div class="p-4 rounded-xl bg-white flex flex-col gap-3 shadow-xl">
