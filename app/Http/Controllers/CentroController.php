@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CentroRequest;
 use App\Models\Centro;
+use App\Models\Profile;
 use App\Models\Regionale;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CentroController extends Controller
 {
@@ -15,6 +18,7 @@ class CentroController extends Controller
     public function index(Regionale $regional)
     {
 
+        
         $centros = Centro::where('regional_id', $regional->id)->get();
         return view('centros.index', compact('centros', 'regional'));
     }
