@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+// use Illuminate\Http\Request;
+// use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -46,10 +49,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        // dd($user);
         $roles_user = $user->getRoleNames();
-        // $user->assignRole($request->role);
-        // dd($roles_user);
         $roles = Role::all()->pluck('name', 'name');
         return view('users.edit', compact('user', 'roles', 'roles_user'));
     }
@@ -73,4 +73,5 @@ class UserController extends Controller
     {
         //
     }
+    
 }

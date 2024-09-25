@@ -32,7 +32,7 @@
                             Editar <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                         <a href="{{ route('centros.index', $regional->id) }}" class="btn btn-success w-full btn-sm text-white">
-                            Agregar centro <i class="fa-solid fa-square-plus"></i>
+                            Ver centro <i class="fa-solid fa-square-plus"></i>
                         </a>
                     </div>
                 </div>

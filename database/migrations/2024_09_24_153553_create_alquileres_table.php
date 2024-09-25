@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alquilers', function (Blueprint $table) {
+        Schema::create('alquileres', function (Blueprint $table) {
             $table->id();
             $table->time("hora_inicio");
-            $table->time('hora_fin');
+            $table->time('hora_fin')->nullable();
+            $table->string('documento', length:10);
             $table->unsignedBigInteger('bicicleta_id')->nullable();
             $table->foreign('bicicleta_id')->references('id')->on('bicicletas');
             $table->timestamps();

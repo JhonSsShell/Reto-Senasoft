@@ -43,10 +43,11 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        // dd($user->id);
         $profile = Profile::create([
             'user_id' => $user->id
         ]);
-        $user->assignRole('cliente');
+        $user->assignRole('usuario');
         event(new Registered($user));
 
         Auth::login($user);

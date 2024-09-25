@@ -50,7 +50,8 @@ class BicicletaController extends Controller
      */
     public function edit(Bicicleta $bicicleta)
     {
-        return view('bicicletas.edit', compact('bicicleta'));
+        $centro = Centro::where('id', $bicicleta->centro_id)->first();
+        return view('bicicletas.edit', compact('bicicleta', 'centro'));
     }
 
     /**
@@ -60,7 +61,8 @@ class BicicletaController extends Controller
     {
         $bicicleta->update($request->all());
         $bicicletas = Bicicleta::where('centro_id', $request->centro_id);
-        return  redirect()->route('bicicletas.index', compact('bicicletas'));
+        $centro = Centro::where('id', $bicicleta->centro_id)->first();
+        return  redirect()->route('bicicletas.index', compact('bicicletas', 'centro'));
     }
 
     /**

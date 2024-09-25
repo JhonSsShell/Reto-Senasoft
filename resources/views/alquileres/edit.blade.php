@@ -1,3 +1,7 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+{{ html()->modelForm($alquilere, 'PUT')->route('alquileres.update', $alquilere->id)->open() }}
+
+    @include('alquileres.partial.form')
+
+    <button>Actualizar</button>
+    
+{{ html()->closeModelForm() }}

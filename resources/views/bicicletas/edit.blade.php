@@ -1,6 +1,6 @@
 {{ html()->modelForm($bicicleta, 'PUT')->route('bicicletas.update', $bicicleta->id)->open() }}
 
-    @include('bicicletas.partials.form')
+    @include('bicicletas.partial.form')
 
     <button>Actualizar</button>
     

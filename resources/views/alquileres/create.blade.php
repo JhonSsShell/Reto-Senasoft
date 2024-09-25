@@ -1,3 +1,7 @@
-<div>
-    <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
-</div>
+{{ html()->form()->route('alquileres.store')->open() }}
+
+    @include('alquileres.partial.form')
+
+    <button type="submit">Generar alquiler</button>
+
+{{ html()->form()->close() }}

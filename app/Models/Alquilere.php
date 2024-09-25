@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Alquilere extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
-        'name',
+        'hora_inicio',
+        'hora_fin',
         'documento',
-        'telefono',
-        'estrato',
-        'centro',
-        'user_id'
+        'bicicleta_id'
     ];
+    
 }

@@ -5,7 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alquiler extends Model
+class Salida extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'estado',
+        'hora_salida',
+        'alquiler_id'
+    ];
+    
 }

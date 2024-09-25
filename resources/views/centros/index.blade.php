@@ -44,6 +44,9 @@
                     </div>
                 </div>
                 <div class="w-full">
+                    <a href=" {{ route('bicicletas.index', $centro->id) }} " class="w-full btn btn-sm "> Ver bicicleteas</a>
+                </div>
+                <div class="w-full">
                     {{ html()->modelForm($centro, 'DELETE')->route('centros.destroy', $regional->id)->open() }}
                         <button class="btn btn-sm btn-outline border-none btn-error w-full text-white">
                             Eliminar <i class="fa-solid fa-trash"></i>

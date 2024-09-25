@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('facturas', function (Blueprint $table) {
+        Schema::create('salidas', function (Blueprint $table) {
             $table->id();
-            $table->time('fecha');
-            $table->double('total');
-            $table->unsignedBigInteger('alquiler_id')->nullable();
+            $table->boolean('estado');
+            $table->time('hora_salida');
+            $table->unsignedBigInteger('alquiler_id')->unique();
             $table->foreign('alquiler_id')->references('id')->on('alquileres');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('facturas');
+        Schema::dropIfExists('salidas');
     }
 };
