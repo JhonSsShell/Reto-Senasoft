@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('documento', length:10)->unique();
-            $table->string('telefono', length:10);
+            $table->string('name')->nullable();
+            $table->string('documento', length:10)->unique()->nullable();
+            $table->string('telefono', length:10)->nullable();
             $table->unsignedBigInteger('estrato_id')->nullable();
             $table->foreign('estrato_id')->references('id')->on('estratos');
             $table->unsignedBigInteger('centro_id')->nullable();

@@ -1,3 +1,7 @@
-<div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-</div>
+{{ html()->modelForm($user, 'PUT')->route('users.update', $user->id)->open() }}
+
+    @include('users.partials.form')
+
+    <button>Actualizar</button>
+    
+{{ html()->closeModelForm() }}

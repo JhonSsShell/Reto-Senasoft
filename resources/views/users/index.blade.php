@@ -1,28 +1,32 @@
 <div>
-    <a href=" {{route('roles.create')}} ">Agregar centro</a>
-    <a href=" {{route('permisos.index')}} ">Permisos</a>
+    <a href=" {{route('users.create')}} ">Agregar centro</a>
 
     <table>
         <thead>
             <th>ID</th>
             <th>Nombre</th>
+            <th>Nombre</th>
+            <th>Rol</th>
             <th>Editar</th>
             <th>Elimar</th>
         </thead>
         <tbody>
-            @foreach ($roles as $role)
+            @foreach ($users as $user)
                 <tr>
                     <td>
-                        {{$role->id}}
+                        {{$user->id}}
                     </td>
                     <td>
-                        {{$role->name}}
+                        {{$user->email}}
                     </td>
                     <td>
-                        <a href=" {{ route('roles.edit', $role->id) }} ">Modificar</a>
+                        {{$user->email}}
                     </td>
                     <td>
-                        {{ html()->modelForm($role, 'DELETE')->route('roles.destroy', $role->id)->open() }}
+                        <a href=" {{ route('users.edit', $user->id) }} ">Modificar</a>
+                    </td>
+                    <td>
+                        {{ html()->modelForm($user, 'DELETE')->route('users.destroy', $user->id)->open() }}
                             <button>
                                 Eliminar
                             </button>

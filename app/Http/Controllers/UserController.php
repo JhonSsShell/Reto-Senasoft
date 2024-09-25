@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -11,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -41,17 +44,26 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        // dd($user);
+        $roles_user = $user->getRoleNames();
+        // $user->assignRole($request->role);
+        // dd($roles_user);
+        $roles = Role::all()->pluck('name', 'name');
+        return view('users.edit', compact('user', 'roles', 'roles_user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update([
+            'email' => $request->email
+        ]);
+        $user->syncRoles($request->role);  
+        return redirect()->route('users.index'); 
     }
 
     /**

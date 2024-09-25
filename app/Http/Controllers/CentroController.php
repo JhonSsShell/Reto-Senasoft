@@ -56,7 +56,8 @@ class CentroController extends Controller
      */
     public function edit(Centro $centro)
     {
-        return view('centros.edit', compact('centro'));
+        $regional = Regionale::where('id', $centro->regional_id)->first();
+        return view('centros.edit', compact('centro', 'regional'));
     }
 
     /**
