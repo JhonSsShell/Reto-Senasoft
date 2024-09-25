@@ -15,7 +15,7 @@
     </div>
     <div class="max-w-5xl flex flex-wrap gap-4 justify-around my-0 mx-auto min-h-8 mt-4">
         @foreach ($regionales as $regional)
-            <div class="p-4 rounded-xl bg-white flex flex-col gap-3">
+            <div class="p-4 rounded-xl bg-white flex flex-col gap-3 shadow-xl">
                 <div class="w-full">
                     <h1 class="flex gap-4 items-center font-bold text-2xl">
                         <i class="fa-solid fa-building bg-green-200 py-2 px-4 text-3xl rounded-xl"></i> {{ $regional->nombre_regional }}

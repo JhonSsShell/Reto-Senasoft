@@ -10,19 +10,19 @@
             </h2>
         </div>
     </x-slot>
-    <div class="mas-w-5xl mt-5 my-0 mx-auto">
+    <div class="max-w-5xl flex justify-between mt-5 my-0 mx-auto">
         <div>
-            <a href="{{ route('centros.create', $regional->id) }}" class="btn btn-sm btn-outline border-none">Crear centro</a>
+            <a href="{{ route('centros.create', $regional->id) }}" class="btn btn-sm btn-outline border-none">Crear centro <i class="fa-solid fa-circle-plus"></i></a>
         </div>
-        <div>
-            <p class="font-bold">
+        <div class="">
+            <p class="font-bold text-xl">
                 Centro regional {{ $regional->nombre_regional }}
             </p>
         </div>
     </div>
     <div class="max-w-5xl flex flex-wrap gap-4 justify-around my-0 mx-auto min-h-8 mt-4">
         @foreach ($centros as $centro)
-            <div class="p-4 rounded-xl bg-white flex flex-col gap-3">
+            <div class="p-4 rounded-xl bg-white flex flex-col gap-3 shadow-lg">
                 <div class="w-full">
                     <h1 class="flex gap-4 items-center font-bold text-2xl">
                         <i class="fa-solid fa-business-time"></i> {{ $centro->nombre }}
@@ -35,6 +35,20 @@
                     <p class="text-xs">
                         Telefono <span class="font-bold"> {{ $centro->telefono_centro }} </span>
                     </p>
+                </div>
+                <div class="w-full">
+                    <div class="flex w-full flex-col gap-3">
+                        <a href="{{ route('centros.edit', $centro->id) }}" class="btn btn-sm w-full btn-info text-white">
+                            Editar <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full">
+                    {{ html()->modelForm($centro, 'DELETE')->route('centros.destroy', $regional->id)->open() }}
+                        <button class="btn btn-sm btn-outline border-none btn-error w-full text-white">
+                            Eliminar <i class="fa-solid fa-trash"></i>
+                        </button>
+                    {{ html()->closeModelForm() }}
                 </div>
             </div>
         @endforeach
