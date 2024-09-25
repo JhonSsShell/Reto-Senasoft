@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Estrato extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'tipo_estrato',
+        'descuento',
+    ];
 }

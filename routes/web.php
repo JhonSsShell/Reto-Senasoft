@@ -5,11 +5,14 @@ use App\Http\Controllers\BicicletaController;
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\EstratoController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionalController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\Regional;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
 
 Route::get('/', function () {
     return view('login');
@@ -26,6 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('users', UserController::class)->except(['show'])->names('users');
+Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
+Route::resource('permisos', PermissionsController::class)->except(['show'])->names('permisos');
 Route::resource('alquileres', AlquilerController::class)->except(['show'])->names('alquileres');
 Route::resource('bicicletas', BicicletaController::class)->except(['show', 'create'])->names('bicicletas');
 Route::resource('centros', CentroController::class)->except(['show','index'])->names('centros');

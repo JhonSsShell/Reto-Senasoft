@@ -1,5 +1,5 @@
 <div>
-    <a href=" {{route('estratos.create')}} ">Agregar estrato</a>
+    <a href=" {{route('permisos.create')}} ">Agregar permiso</a>
 
     <table>
         <thead>
@@ -10,22 +10,22 @@
             <th>Eliminar</th>
         </thead>
         <tbody>
-            @foreach ($estratos as $estrato)
+            @foreach ($permisos as $permiso)
                 <tr>
                     <td>
-                        {{$estrato->id}}
+                        {{$permiso->id}}
                     </td>
                     <td>
-                        {{$estrato->tipo_estrato}}
+                        {{$permiso->name}}
                     </td>
                     <td>
-                        {{$estrato->descuento}}
+                        {{$permiso->description}}
                     </td>
                     <td>
-                        <a href=" {{ route('estratos.edit', $estrato->id) }} ">Modificar</a>
+                        <a href=" {{ route('permisos.edit', $permiso->id) }} ">Modificar</a>
                     </td>
                     <td>
-                        {{ html()->modelForm($estrato, 'DELETE')->route('estratos.destroy', $estrato->id)->open() }}
+                        {{ html()->modelForm($permisos, 'DELETE')->route('permisos.destroy', $permiso->id)->open() }}
                             <button>
                                 Eliminar
                             </button>

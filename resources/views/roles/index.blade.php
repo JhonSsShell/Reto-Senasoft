@@ -1,31 +1,28 @@
 <div>
-    <a href=" {{route('estratos.create')}} ">Agregar estrato</a>
+    <a href=" {{route('roles.create')}} ">Agregar centro</a>
+    <a href=" {{route('permisos.index')}} ">Permisos</a>
 
     <table>
         <thead>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
             <th>Editar</th>
-            <th>Eliminar</th>
+            <th>Elimar</th>
         </thead>
         <tbody>
-            @foreach ($estratos as $estrato)
+            @foreach ($roles as $role)
                 <tr>
                     <td>
-                        {{$estrato->id}}
+                        {{$role->id}}
                     </td>
                     <td>
-                        {{$estrato->tipo_estrato}}
+                        {{$role->name}}
                     </td>
                     <td>
-                        {{$estrato->descuento}}
+                        <a href=" {{ route('roles.edit', $role->id) }} ">Modificar</a>
                     </td>
                     <td>
-                        <a href=" {{ route('estratos.edit', $estrato->id) }} ">Modificar</a>
-                    </td>
-                    <td>
-                        {{ html()->modelForm($estrato, 'DELETE')->route('estratos.destroy', $estrato->id)->open() }}
+                        {{ html()->modelForm($role, 'DELETE')->route('roles.destroy', $role->id)->open() }}
                             <button>
                                 Eliminar
                             </button>

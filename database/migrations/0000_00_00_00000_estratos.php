@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('tipo_estrato');
             $table->double('descuento');
+            $table->timestamps();
         });
     }
 

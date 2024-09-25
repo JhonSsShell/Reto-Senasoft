@@ -1,3 +1,5 @@
-<div>
-    <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
-</div>
+{{ html()->label('tipo_estrato') }}
+{{ html()->text('tipo_estrato') }}
+{{ html()->label('descuento') }}
+{{ html()->text('descuento') }}
+
