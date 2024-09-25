@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EstratoSeeder::class);
         $this->call(RegionalesSeed::class);
         $this->call(UserSeeder::class);
+        $this->call(ProfileSeeder::class);
     }
 }

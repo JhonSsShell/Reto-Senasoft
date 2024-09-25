@@ -13,37 +13,35 @@
             <a href="{{ route('regionales.create') }}" class="btn btn-sm btn-outline border-none"> Crear nueva regional <i class="fa-solid fa-mountain-sun"></i></a>
         </div>
     </div>
-    <div class="max-w-5xl flex flex-wrap justify-around my-0 mx-auto min-h-8 mt-4">
+    <div class="max-w-5xl flex flex-wrap gap-4 justify-around my-0 mx-auto min-h-8 mt-4">
         @foreach ($regionales as $regional)
-            <div class="p-4 mt-6 max-w-fit rounded-xl bg-gray-100 flex flex-col gap-2 text-center">
-                <div>
-                    <p class="font-bold text-2xl">
-                        {{ $regional->nombre_regional }}
-                    </p>
-                </div>
-                <div>
-                    <p class="italic font-bold text-sm">
-                        Cantidad de bicicletas --- {{ $regional->cantidad_bicicletas }}
-                    </p>
-                </div>
-                <div class="flex w-full justify-between">
-                    <div>
-                        <a href="{{ route('regionales.edit', $regional->id) }}" class="btn btn-sm btn-info text-white">
-                            Editar <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                    </div>
-                    <div>
-                        {{ html()->modelForm($regional, 'DELETE')->route('regionales.destroy', $regional->id)->open() }}
-                            <button class="btn btn-sm btn-error text-white">
-                                Eliminar <i class="fa-solid fa-trash"></i>
-                            </button>
-                        {{ html()->closeModelForm() }}
-                    </div>  
+            <div class="p-4 rounded-xl bg-white flex flex-col gap-3">
+                <div class="w-full">
+                    <h1 class="flex gap-4 items-center font-bold text-2xl">
+                        <i class="fa-solid fa-building bg-green-200 py-2 px-4 text-3xl rounded-xl"></i> {{ $regional->nombre_regional }}
+                    </h1>
                 </div>
                 <div class="w-full">
-                    <a href="{{ route('centros.index', $regional->id) }}" class="btn btn-success w-full btn-sm text-white">
-                        Agregar centro <i class="fa-solid fa-square-plus"></i>
-                    </a>
+                    <p class="text-xs">
+                        Cantidad de bicicletas del centro {{ $regional->cantidad_bicicletas }}
+                    </p>
+                </div>
+                <div class="w-full">
+                    <div class="flex w-full flex-col gap-3">
+                        <a href="{{ route('regionales.edit', $regional->id) }}" class="btn btn-sm w-full btn-info text-white">
+                            Editar <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a href="{{ route('centros.index', $regional->id) }}" class="btn btn-success w-full btn-sm text-white">
+                            Agregar centro <i class="fa-solid fa-square-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full">
+                    {{ html()->modelForm($regional, 'DELETE')->route('regionales.destroy', $regional->id)->open() }}
+                        <button class="btn btn-sm btn-outline border-none btn-error w-full text-white">
+                            Eliminar <i class="fa-solid fa-trash"></i>
+                        </button>
+                    {{ html()->closeModelForm() }}
                 </div>
             </div>
         @endforeach
