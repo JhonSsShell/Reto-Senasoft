@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('regionales', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_regional');
+            $table->double('latitud');
+            $table->double('longitud');
             $table->integer('cantidad_bicicletas')->default(0);
             $table->timestamps();
         });

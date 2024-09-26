@@ -14,6 +14,8 @@ class Regionale extends Model
 
     protected $fillable = [
         'nombre_regional',
+        'latitud',
+        'longitud',
         'cantidad_bicicletas'
     ];
 }

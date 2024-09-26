@@ -10,6 +10,22 @@
     </div>
     <div class="flex flex-col gap-2">
         <div>
+            {{ html()->label('Latitud de la regional')->class('font-bold') }}
+        </div>
+        <div>
+            {{ html()->text('latitud')->placeholder('Ingrese la latitud de la regional')->class('input input-bordered input-sm w-full') }}
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div>
+            {{ html()->label('Longitud de la regional')->class('font-bold') }}
+        </div>
+        <div>
+            {{ html()->text('longitud')->placeholder('Ingrese la longitud de la regional')->class('input input-bordered input-sm w-full') }}
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div>
             {{ html()->label('Cantidad de bicicletas')->class('font-bold') }}
         </div>
         <div>

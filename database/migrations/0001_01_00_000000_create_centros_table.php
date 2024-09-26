@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('direccion');
+            $table->bigInteger('longitud');
+            $table->bigInteger('altura');
             $table->string('telefono_centro', length:10);
             $table->unsignedBigInteger('regional_id');
             $table->foreign('regional_id')->references('id')->on('regionales');

@@ -7,6 +7,22 @@
             {{ html()->text('nombre')->class('input input-bordered input-sm w-full')->placeholder('Ingrese el nombre del centro') }}
         </div>
     </div>
+    <div class="flex flex-col gap-2">
+        <div>
+            {{ html()->label('Longitud del centro')->class('font-bold') }}
+        </div>
+        <div>
+            {{ html()->text('longitud')->class('input input-bordered input-sm w-full')->placeholder('Ingrese la longitud del centro') }}
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div>
+            {{ html()->label('Altura del centro')->class('font-bold') }}
+        </div>
+        <div>
+            {{ html()->text('altura')->class('input input-bordered input-sm w-full')->placeholder('Ingrese la altura     del centro') }}
+        </div>
+    </div>
     <div class="flex flex-col gap-4">
         <div>
             {{ html()->label('Direccion del centro')->class('font-bold') }}

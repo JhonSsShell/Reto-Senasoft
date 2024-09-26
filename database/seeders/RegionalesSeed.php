@@ -15,30 +15,20 @@ class RegionalesSeed extends Seeder
     {
         DB::table('regionales')->insert([
             'nombre_regional' => 'Santander',
-            'cantidad_bicicletas' => 10
-        ]);
-        DB::table('regionales')->insert([
-            'nombre_regional' => 'Choco',
-            'cantidad_bicicletas' => 10
-        ]);
-        DB::table('regionales')->insert([
-            'nombre_regional' => 'Magdalena',
+            'latitud' => "7.087501659338443",
+            'longitud' => "-73.20200994022358",
             'cantidad_bicicletas' => 10
         ]);
         DB::table('regionales')->insert([
             'nombre_regional' => 'Cauca',
+            'latitud' => "3.4232430686666646",
+            'longitud' => "-76.52945719040304",
             'cantidad_bicicletas' => 10
         ]);
         DB::table('regionales')->insert([
-            'nombre_regional' => 'Cesar',
-            'cantidad_bicicletas' => 10
-        ]);
-        DB::table('regionales')->insert([
-            'nombre_regional' => 'Antioquia',
-            'cantidad_bicicletas' => 10
-        ]);
-        DB::table('regionales')->insert([
-            'nombre_regional' => 'Amazonas',
+            'nombre_regional' => 'Magdalena',
+            'latitud' => "10.958895877978776",
+            'longitud' => "-74.82869770490821",
             'cantidad_bicicletas' => 10
         ]);
     }

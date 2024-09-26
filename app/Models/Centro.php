@@ -11,6 +11,8 @@ class Centro extends Model
     protected $fillable = [
         'nombre',
         'direccion',
+        'longitud',
+        'altura',
         'telefono_centro',
         'regional_id'
     ];
