@@ -16,6 +16,10 @@ use function PHPSTORM_META\map;
 class RegionalController extends Controller
 {
 
+
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $regionales = Regionale::all();

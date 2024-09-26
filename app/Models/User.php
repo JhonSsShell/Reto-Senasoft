@@ -52,4 +52,8 @@ class User extends Authenticatable
         $perfil = Profile::where('user_id', $user)->first();
         return $perfil->name;
     }
+    public function perfil()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

@@ -22,7 +22,7 @@
                 </div>
                 <div class="w-full">
                     <p class="text-sm">
-                        Descuento <span class="font-bold"> {{ $estrato->descuento }} % </span>
+                        Descuento <span class="font-bold"> {{ $estrato->descuento * 100}} % </span>
                     </p>
                 </div>
                 <div class="w-full">
