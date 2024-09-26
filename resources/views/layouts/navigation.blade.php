@@ -10,27 +10,6 @@
                     </a> --}}
                     <img src="{{URL::asset('images/senaLogo.png')}}" alt="duro">
                 </div>
-<<<<<<< HEAD
-
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('regionales.index')" :active="request()->routeIs('regionales.*')">
-                            {{ __('Regionales') }}
-                        </x-nav-link>
-                    </div>
-
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
-                            {{ __('Roles') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('estratos.index')" :active="request()->routeIs('estratos.*')">
-                            {{ __('Estratos') }}
-                        </x-nav-link>
-                    </div>
-=======
-                
->>>>>>> 668a2d1abe4ce372b6e1c1d0284b18767830774c
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
