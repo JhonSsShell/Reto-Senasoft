@@ -1,3 +1,24 @@
+<x-app-layout>
+    <x-slot name="header">
+        <div class="w-full flex items-center gap-6">
+            <a href="{{ route('centros.index') }}" class="btn btn-sm">
+                <i class="fa-solid fa-chevron-left text-bold"></i>             
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Agregar bicicletas') }}
+            </h2>
+        </div>
+    </x-slot>
+    <div class="max-w-5xl mt-5 my-0 mx-auto">
+        <div>
+            <a href="{{ route('bicicletas.create', $centro->id) }}" class="btn btn-sm btn-outline border-none">Registrar nueva bicicleta</a>
+        </div>
+    </div>
+    <div class="max-w-5xl flex flex-wrap gap-4 justify-around my-0 mx-auto min-h-8 mt-4">
+
+    </div>
+</x-app-layout>
+
 <div>
     <a href=" {{route('bicicletas.create', $centro->id)}} ">Agregar bicicleta</a>
 

@@ -11,7 +11,7 @@
             <div class="p-4 rounded-xl bg-white flex flex-col gap-3 shadow-xl">
                 <div class="w-full">
                     <h1 class="flex gap-4 items-center font-bold text-2xl">
-                        <i class="fa-solid fa-user-lock"></i> {{ $user->profile() }}
+                        <i class="fa-solid fa-user-lock"></i> {{ $user->email }}
                     </h1>
                 </div>
                 <div class="w-full text-center">

@@ -16,20 +16,6 @@ use function PHPSTORM_META\map;
 class RegionalController extends Controller
 {
 
-<<<<<<< HEAD
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    //     $this->middleware('can:roles.index')->only('index');
-    //     $this->middleware('can:roles.create')->only('create', 'store');
-    //     $this->middleware('can:roles.edit')->only('edit', 'update');
-    //     $this->middleware('can:roles.destroy')->only('destroy');
-    // }
-    /**
-     * Display a listing of the resource.
-     */
-=======
->>>>>>> 668a2d1abe4ce372b6e1c1d0284b18767830774c
     public function index()
     {
         $regionales = Regionale::all();

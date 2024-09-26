@@ -6,7 +6,11 @@
             {{ __('Alquiler') }}
         </h2>
     </x-slot>
-    
+    <div class="max-w-5xl mt-5 flex justify-center gap-28 my-0 mx-auto">
+        @foreach ($alquileres as $item)
+            {{ item->documento }}
+        @endforeach
+    </div>
 </x-app-layout>
 
 <div>
