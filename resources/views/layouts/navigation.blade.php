@@ -11,30 +11,22 @@
                     <img src="{{URL::asset('images/senaLogo.png')}}" alt="duro">
                 </div>
 
-                @if (auth()->user()->can('regionales index'))
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('regionales.index')" :active="request()->routeIs('regionales.*')">
                             {{ __('Regionales') }}
                         </x-nav-link>
                     </div>
-                @endif
 
-                @can('regionales index')
-                @endcan
-                @can('roles index')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
                             {{ __('Roles') }}
                         </x-nav-link>
                     </div>
-                @endcan
-                @can('estratos index')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('estratos.index')" :active="request()->routeIs('estratos.*')">
                             {{ __('Estratos') }}
                         </x-nav-link>
                     </div>
-                @endcan
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -47,8 +39,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('alquileres.index')" :active="request()->routeIs('alquileres.*')">
+                    <x-nav-link :href="route('alquileres.user')" :active="request()->routeIs('alquileres.*')">
                         {{ __('Alquileres') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('eventos.todos')" :active="request()->routeIs('eventos.*')">
+                        {{ __('Eventos') }}
                     </x-nav-link>
                 </div>
             </div>

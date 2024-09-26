@@ -45,6 +45,10 @@
                 </div>
                 <div class="w-full">
                     <a href=" {{ route('bicicletas.index', $centro->id) }} " class="w-full btn btn-sm "> Ver bicicleteas</a>
+                    <a href=" {{ route('alquileres.index', $centro->id) }} " class="w-full btn btn-sm "> Lista de alquileres</a>
+                </div>
+                <div class="w-full">
+                    <a href=" {{ route('eventos.index', $centro->id) }} " class="w-full btn btn-sm "> Ver eventos</a>
                 </div>
                 <div class="w-full">
                     {{ html()->modelForm($centro, 'DELETE')->route('centros.destroy', $regional->id)->open() }}

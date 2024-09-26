@@ -1,3 +1,7 @@
-<div>
-    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
-</div>
+{{ html()->form()->route('eventos.store')->open() }}
+
+    @include('eventos.partials.form')
+
+    <button type="submit">Agregar bicicleta</button>
+
+{{ html()->form()->close() }}

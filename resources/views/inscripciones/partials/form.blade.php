@@ -1,3 +1,5 @@
-<div>
-    <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
-</div>
+{{ html()->label('documento') }}
+{{ html()->text('documento') }}
+{{ html()->label('bicicleta_id') }}
+{{ html()->select('bicicleta_id', $bicicletasDisponibles)->placeholder("Seleccion ...") }}
+{{ html()->hidden('evento_id')->value($evento->id) }}

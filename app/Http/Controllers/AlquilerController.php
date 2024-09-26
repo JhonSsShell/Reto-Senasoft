@@ -5,19 +5,30 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AlquilerRequest;
 use App\Models\Alquilere;
 use App\Models\Bicicleta;
+use App\Models\Centro;
 use App\Models\Factura;
+use App\Models\Profile;
 use App\Models\Salida;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlquilerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Centro $centro)
     {
-        $alquileres = Alquilere::all();
+        $id = $centro->id;
+        $ciclas = $centro->ciclas;
+        // $alquileres = Alquilere::whereIn('bicicleta_id', $ciclas->pluck('id'))->get();
+
+        $alquileres = Alquilere::whereIn('bicicleta_id', $ciclas->pluck('id'))
+        ->with('facturas') // Cargar las facturas relacionadas
+        ->get();
+        // dd($alquileres);
         return view('alquileres.index',compact('alquileres'));
     }
 
@@ -45,10 +56,10 @@ class AlquilerController extends Controller
             $cicla->update([
                 'estado' => 'Inactivo'
             ]);
-            return redirect()->route('alquileres.index');
+            return redirect()->route('alquileres.user');
         }
         else{
-            return view('alquileres.create');
+            return redirect()->route('alquileres.create');
         }
         
     }
@@ -87,7 +98,7 @@ class AlquilerController extends Controller
             ]);
             $this->factura($alquilere);
         }
-        return redirect()->route('alquileres.index');
+        return redirect()->route('alquileres.user');
     }
 
     /**
@@ -96,7 +107,7 @@ class AlquilerController extends Controller
     public function destroy(Alquilere $alquilere)
     {
         $alquilere->delete();
-        return redirect()->route('alquileres.index');
+        return redirect()->route('alquileres.user');
     }
 
     public function factura(Alquilere $alquilere) 
@@ -108,12 +119,21 @@ class AlquilerController extends Controller
         $horas = ceil($diferencia);
         $costo = $bicicleta->precio;
         $precio = ceil($horas) * $costo;
-        dd($precio);
+        $fechaActual = Carbon::now();
+        // dd($diferencia);
         Factura::create([
-            'fecha' => Carbon::now(),
+            'fecha' => $fechaActual->format('y/m/d'),
             'total' => $precio,
             'alquiler_id' => $alquilere->id
 
         ]);
+    }
+    public function user()
+    {
+        $id = Auth::id();
+        $perfil = Profile::where('user_id', $id)->first();
+        // dd($perfil);
+        $alquileres = Alquilere::where('documento', $perfil->documento)->get();
+        return view('alquileres.user', compact('alquileres','perfil'));
     }
 }

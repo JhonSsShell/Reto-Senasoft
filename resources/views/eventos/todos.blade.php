@@ -1,6 +1,4 @@
 <div>
-    <a href=" {{route('eventos.create', $centro->id)}} ">Agregar evento</a>
-
     <table>
         <thead>
             <th>ID</th>
@@ -35,19 +33,9 @@
                     </td>
                     <td>
                         {{$evento->fecha}}
-                    </td>
+                    </td>                
                     <td>
-                        <a href=" {{ route('eventos.edit', $evento->id) }} ">Modificar</a>
-                    </td>
-                    <td>
-                        {{ html()->modelForm($evento, 'DELETE')->route('eventos.destroy', $evento->id)->open() }}
-                            <button>
-                                Eliminar
-                            </button>
-                        {{ html()->closeModelForm() }}
-                    </td>
-                    <td>
-                        <a href=" {{ route('inscripciones.index', $evento->id) }} ">Inscribirce</a>
+                        <a href=" {{ route('inscripciones.create', $evento->id) }} ">Inscribirse</a>
                     </td>
                 </tr>
                 

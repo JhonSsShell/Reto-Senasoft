@@ -16,5 +16,13 @@ class Alquilere extends Model
         'documento',
         'bicicleta_id'
     ];
-    
+
+    public function cicla()
+    {
+        return $this->belongsTo(Bicicleta::class);
+    }
+    public function facturas()
+    {
+        return $this->hasMany(Factura::class, 'alquiler_id'); // Relación con la tabla de facturas
+    }
 }

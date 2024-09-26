@@ -16,4 +16,14 @@ class Bicicleta extends Model
         'precio',
         'centro_id',
     ];
+
+    public function centro()
+    {
+        return $this->belongsTo(Centro::class);
+    }
+
+    public function alquileres()
+    {
+        return $this->hasMany(Alquilere::class);
+    }
 }

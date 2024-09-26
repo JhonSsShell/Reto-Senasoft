@@ -14,4 +14,13 @@ class Centro extends Model
         'telefono_centro',
         'regional_id'
     ];
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
+
+    public function ciclas()
+    {
+        return $this->hasMany(Bicicleta::class);
+    }
 }

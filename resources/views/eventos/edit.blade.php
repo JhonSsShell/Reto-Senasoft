@@ -1,3 +1,7 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
-</div>
+{{ html()->modelForm($evento, 'PUT')->route('eventos.update', $evento->id)->open() }}
+
+    @include('eventos.partials.form')
+
+    <button>Actualizar</button>
+    
+{{ html()->closeModelForm() }}

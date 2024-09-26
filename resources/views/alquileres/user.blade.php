@@ -1,4 +1,6 @@
 <div>
+    <a href=" {{route('alquileres.create', $perfil->id)}} ">Alquilar</a>
+
     <table>
         <thead>
             <th>ID</th>
@@ -26,16 +28,6 @@
                     <td>
                         {{$alquiler->bicicleta_id}}
                     </td>
-                    <!-- Agregar aquí la información de la factura -->
-                    @foreach ($alquiler->facturas as $factura)
-                    <td>
-                        Fecha: {{ $factura->fecha }}
-                    </td>
-                    <td>
-                        Total: {{ $factura->total }}
-                    </td>
-                         
-                    @endforeach
                     <td>
                         @if (!isset($alquiler->hora_fin))
                             <a href=" {{ route('alquileres.edit', $alquiler->id) }} ">Modificar</a>           

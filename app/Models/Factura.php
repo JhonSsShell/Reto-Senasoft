@@ -14,4 +14,9 @@ class Factura extends Model
         'total',
         'alquiler_id'
     ];
+
+    public function alquiler()
+    {
+        return $this->belongsTo(Alquilere::class, 'alquiler_id'); // Relación inversa con alquiler
+    }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            $table->time('fecha');
+            $table->date('fecha');
             $table->double('total');
             $table->unsignedBigInteger('alquiler_id')->nullable();
             $table->foreign('alquiler_id')->references('id')->on('alquileres');
