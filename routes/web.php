@@ -10,17 +10,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionalController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
 use App\Models\Regional;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [AuthController::class, 'showLogin']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,13 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::group(['middleware' => ['auth', 'permissions:roles.index']], function () {
-    Route::get('/roles', [RoleController::class, 'index']);
-    Route::get('/roles/create', [RoleController::class, 'create']);
-});
-
 Route::resource('users', UserController::class)->except(['show'])->names('users');
-// Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
+Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
 Route::resource('permisos', PermissionsController::class)->except(['show'])->names('permisos');
 Route::resource('alquileres', AlquilerController::class)->except(['show'])->names('alquileres');
 Route::resource('bicicletas', BicicletaController::class)->except(['show', 'create'])->names('bicicletas');
@@ -42,6 +38,10 @@ Route::resource('centros', CentroController::class)->except(['show','index'])->n
 Route::resource('estratos', EstratoController::class)->except(['show'])->names('estratos');
 Route::resource('eventos', EventoController::class)->except(['show'])->names('eventos');
 Route::resource('regionales', RegionalController::class)->except(['show'])->names('regionales');
+
+Route::prefix('regionales')->group(function() {
+    Route::get('getCentrosMaps/{reginalId}', [RegionalController::class, 'getCentrosMaps'])->name('regionales.getCentrosMaps');
+});
 
 Route::prefix('users')->group(function() {
     Route::post('/updateProfile/{profile}', [UserController::class, 'updateProfile'])->name('users.updateProfile');
